@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Editable Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assignment2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="actions-bar">
+        <button class="btn btn-edit" id="editBtn" onclick="toggleEditMode(true)">
+            <i class="fa-solid fa-pen-to-square"></i> แก้ไขข้อมูล
+        </button>
+        <button class="btn btn-cancel" id="cancelBtn" onclick="toggleEditMode(false)">
+            ยกเลิก
+        </button>
+        <button class="btn btn-save" id="saveBtn" onclick="saveData()">
+            <i class="fa-solid fa-floppy-disk"></i> บันทึก
+        </button>
+    </div>
+
+    <div class="container" id="resumeContainer">
+        <header>
+            <div class="profile-img-container">
+                <img src="1.jpg" alt="Profile Image" id="profileImageDisplay">
+                <label for="imageInput" class="image-upload-label">
+                    <i class="fa-solid fa-camera"></i>
+                </label>
+                <input type="file" id="imageInput" accept="image/png, image/jpeg">
+            </div>
+
+            <div class="header-text">
+                <h1 class="view-field" id="nameDisplay">ณัฐภณ ศรีนุต</h1>
+                <input type="text" class="edit-field" id="nameInput" placeholder="ชื่อ-นามสกุล">
+                
+                <p class="view-field" id="jobDisplay">Web Developer & UI Designer</p>
+                <input type="text" class="edit-field" id="jobInput" placeholder="ตำแหน่งงาน">
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="section">
+                    <h2>ข้อมูลติดต่อ</h2>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span class="view-field" id="phoneDisplay">088-888-8888</span>
+                            <input type="tel" class="edit-field" id="phoneInput" placeholder="เบอร์โทรศัพท์">
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="view-field" id="emailDisplay">example1@email.com</span>
+                            <input type="email" class="edit-field" id="emailInput" placeholder="อีเมล">
+                        </li>
+                         <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="view-field" id="locationDisplay">ปทุมธานี</span>
+                            <input type="text" class="edit-field" id="locationInput" placeholder="ที่อยู่">
+                        </li>
+                    </ul>
+                </div>
+
+                <br>
+                <div class="section">
+                    <h2>ทักษะ (Skills)</h2>
+                    <ul>
+                        <li>HTML5 / CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React.js</li>
+                    </ul>
+                </div>
+
+                <br>
+                <div class="section">
+                    <h2>ภาษา</h2>
+                    <ul>
+                        <li>ไทย (Native)</li>
+                        <li>อังกฤษ (Intermediate)</li>
+                    </ul>
+                </div>
+
+                <br>
+                <div class="section">
+                    <h2>ประวัติการศึกษา</h2> 
+                    <ul>
+                        <li><strong>ปริญญาตรี สาขาวิทยาการคอมพิวเตอร์</strong></li>
+                        <li>โรงเรียนสามโคก | 2012 - 2015</li>
+                    </ul>
+                    
+
+                </div>
+            </aside>
+
+            
+            <main class="details">
+                <div class="section">
+                    <h2>เกี่ยวกับฉัน</h2>
+                    <p class="view-field" id="summaryDisplay">นักพัฒนาเว็บที่มีความกระตือรือร้นและรักในการเรียนรู้เทคโนโลยีใหม่ๆ มีประสบการณ์ในการสร้างเว็บไซต์ที่รองรับการใช้งานบนมือถือ และให้ความสำคัญกับประสบการณ์ของผู้ใช้งาน (UX)</p>
+                    <textarea class="edit-field" id="summaryInput" placeholder="เขียนสรุปเกี่ยวกับตัวคุณ..."></textarea>
+                </div>
+
+                <br>
+                <div class="section">
+                    <h2>ประสบการณ์ทำงาน</h2>
+                     <div style="margin-bottom: 20px;">
+                        
+                        <h3 style="font-weight: 600;">Senior Web Developer</h3>
+                        <p style="color: #777; font-style: italic; font-size: 0.9em;">บริษัท ABC Tech | 2021 - ปัจจุบัน</p>
+                        <p>พัฒนาและดูแลระบบเว็บไซต์ E-commerce ขนาดใหญ่</p>
+                        <textarea class="edit-field" id="experienceInput1" placeholder="รายละเอียดประสบการณ์ทำงาน..."></textarea>
+                    </div>
+                    <div>
+                        
+                        <h3 style="font-weight: 600;">Junior Web Developer</h3>
+                        <p style="color: #777; font-style: italic; font-size: 0.9em;">บริษัท XYZ Solutions | 2019 - 2021</p>
+                        <p>ร่วมทีมพัฒนาเว็บไซต์สำหรับลูกค้าหลากหลายอุตสาหกรรม</p>
+                        <textarea class="edit-field" id="experienceInput2" placeholder="รายละเอียดประสบการณ์ทำงาน..."></textarea>
+                </div>
+                <button class="btn btn-edit" id="editBtn" onclick="toggleEditMode(true)">
+                        <i class="fa-solid fa-pen-to-square"></i> แก้ไขข้อมูล
+            </main>
+        </div>
+    </div>
+    <script src="assignment2.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Ignore AI Model Weights (Too big for GitHub)
+*.weights
+*.pt
+*.pth
+*.h5
+*.onnx
+
+# Ignore large Data Mining datasets
+*.csv
+*.arff
+*.json
+
+# Ignore Cloud/Virtualization artifacts
+*.iso
+*.vmdk
+.terraform/
+
+node_modules/
+dist/
+.angular/
+
+# AI Training Files & Models
+*.zip
+*.rar
+*.dat
+*.mp4
+*.weights
+*.pt
+
+# Fullstack libraries
+node_modules/

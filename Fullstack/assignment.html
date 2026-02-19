@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="assignment.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <fieldset>
+            <legend>Profile Form</legend>
+            <table>
+                <tr>
+                    <td>Enter your name: </td>
+                    <td><input type="text" id="cell1"></td>
+                </tr>
+                <tr>
+                    <td>Enter your name: </td>
+                    <td><input type="text" id="cell2"></td>
+
+                </tr>
+                <tr>
+                    <td>Enter your age: </td>
+                    <td><input type="number" id="cell3"></td>
+                </tr>
+            </table>
+        </fieldset>
+            <br>
+
+            <button onclick="updateName();">
+                Add User
+            </button>
+    </div>
+    <div id="sc">
+        <table id="t2" style="border: 1px solid black; padding: 2px; margin: 2px;">
+            
+        <tr>
+            <th>Name</th>
+            <th>Last Name </th>
+            <th>Age </th>
+            <th></th>
+        </tr>
+        
+        </table>
+    </div>
+</body>
+</html>

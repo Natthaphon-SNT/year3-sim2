@@ -1,0 +1,56 @@
+<div style="padding: 20px; font-family: sans-serif;">
+      <h1>Calculate App</h1>
+
+      <fieldset style="margin-bottom: 20px; border: 2px solid #333; padding: 15px;">
+        <legend><h2>Simple Calculator</h2></legend>
+        
+        <form [formGroup]="calcForm" (ngSubmit)="calculate()">
+          <div style="margin-bottom: 10px;">
+            <input type="number" formControlName="operand1" style="padding: 5px;">
+            
+            <select formControlName="operation" style="padding: 5px; margin: 0 5px;">
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
+            </select>
+            
+            <input type="number" formControlName="operand2" style="padding: 5px;">
+            
+            <button type="submit" [disabled]="calcForm.invalid" 
+                    style="margin-left: 10px; padding: 5px 15px; background-color: #007bff; color: white; border: none; cursor: pointer;"
+                    [style.opacity]="calcForm.invalid ? '0.5' : '1'">
+                Calculate
+            </button>
+          </div>
+          
+          <div *ngIf="errorMessage" style="color: red; margin-bottom: 10px;">
+             {{ errorMessage }}
+          </div>
+        </form>
+
+        <p style="font-size: 1.2em;">Current Result: <strong>{{ currentResult }}</strong></p>
+
+        <hr>
+        <h3>Calculation History</h3>
+        <div *ngIf="calculations.length === 0" style="color: gray;">No calculations yet.</div>
+        
+        <calculation-row 
+            *ngFor="let item of calculations" 
+            [calculationData]="item" 
+            (calculationDeleted)="onDeleteCalculation($event)">
+        </calculation-row>
+      </fieldset>
+
+      <!-- <fieldset style="margin-top: 20px; border: 1px solid #ccc; padding: 15px;">
+        <legend>User Management (Legacy Form)</legend>
+        <input placeholder="Name" [(ngModel)]="name" style="margin-right: 5px;">
+        <input type="number" placeholder="Age" [(ngModel)]="age" style="margin-right: 5px;">
+        <button (click)="submit()">Add User</button>
+        
+        <div style="margin-top: 10px;">
+             <user-row *ngFor="let u of users" [userData]="u" (userDeleted)="onDeleteUser($event)"></user-row>
+        </div>
+      </fieldset> -->
+
+    </div>
