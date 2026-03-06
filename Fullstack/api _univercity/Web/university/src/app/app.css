@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tahoma', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #1e5799 0%, #7db9e8 100%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: url('https://oreg.rmutt.ac.th/images/bg_head.jpg') no-repeat center right, linear-gradient(to right, #00529b, #007cc3);
+    background-size: cover;
+    height: 120px;
+    color: white;
+    position: relative;
+}
+
+.layout {
+    display: flex;
+    min-height: 600px;
+}
+
+/* เมนูด้านซ้าย */
+.sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar-header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.menu-list {
+    list-style: none;
+}
+
+.menu-list li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.menu-list li a:hover {
+    background-color: #e0e0e0;
+    color: #00529b;
+}
+
+.menu-list li.active a {
+    background-color: #d1e7dd;
+    font-weight: bold;
+}
+
+/* เนื้อหาตรงกลาง */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.welcome-text {
+    color: #cc6600;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.profile-box {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 150px;
+    background-color: #00529b;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.profile-info h3 {
+    color: #00529b;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #000080;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f0f0f0;
+    padding: 8px;
+    text-align: center;
+}
+
+td {
+    padding: 8px;
+}
+
+.active-menu {
+    background-color: #d1e7dd !important;
+    font-weight: bold;
+    color: #00529b !important;
+}
+
+.active-menu {
+    background-color: #e6e6e6;
+    color: #cc0000 !important;
+    font-weight: bold;
+}
+
+.menu-list a {
+    cursor: pointer;
+}

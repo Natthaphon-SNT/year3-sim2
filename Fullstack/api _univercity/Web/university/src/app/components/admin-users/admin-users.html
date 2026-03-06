@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>จัดการผู้ใช้งานระบบ</h2>
+
+    <div *ngIf="message" class="message success">
+        {{ message }}
+    </div>
+
+    <div *ngIf="isLoading" class="loading">
+        กำลังโหลดข้อมูล...
+    </div>
+
+    <table *ngIf="!isLoading" class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.user_id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role }}</td>
+                <td>
+                    <span *ngIf="user.is_active" class="status active">Active</span>
+                    <span *ngIf="!user.is_active" class="status inactive">Inactive</span>
+                </td>
+                <td>
+                    <button (click)="toggleActiveStatus(user)" class="btn-toggle">
+                        {{ user.is_active ? 'ระงับ' : 'เปิดใช้งาน' }}
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

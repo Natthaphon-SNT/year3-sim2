@@ -1,0 +1,27 @@
+<div *ngIf="!isLoading && userProfile" class="profile-container">
+  <h3 class="welcome-text">
+    ยินดีต้อนรับ คุณ{{ userProfile.first_name }} {{ userProfile.last_name }} 
+    รหัสประจำตัว {{ userProfile.student_id }} <br>
+    สถานภาพ : {{ userProfile.is_active ? 'กำลังศึกษา' : 'พ้นสภาพ' }}
+  </h3>
+
+  <div class="info-card">
+    <div class="profile-pic">
+      <img [src]="userProfile.profile_image" alt="รูปนักศึกษา" 
+           onerror="this.src='assets/default_std.png'">
+    </div>
+    
+    <div class="info-details">
+      <h4 class="section-title">ข้อมูลระหว่างการศึกษา</h4>
+      <p><strong>ชื่อ-สกุล ภาษาไทย</strong> - {{ userProfile.first_name }} {{ userProfile.last_name }}</p>
+      <p><strong>บทบาทในระบบ</strong> - {{ userProfile.role_name }}</p>
+      <p><strong>รหัสนักศึกษา</strong> - {{ userProfile.student_id }}</p>
+      <p><strong>คณะ</strong> - {{ userProfile.faculty }}</p>
+      <p><strong>สาขา</strong> - {{ userProfile.major }}</p>
+      <p><strong>ปีการศึกษา</strong> - {{ userProfile.year }}</p>
+      <p><strong>สถานะ</strong> - {{ userProfile.status }}</p>
+      </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loading-text">กำลังโหลดข้อมูล...</div>

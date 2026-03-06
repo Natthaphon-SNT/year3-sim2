@@ -1,0 +1,47 @@
+<div class="page-container">
+  <h3 class="page-title">บันทึกเกรด (Grade Entry)</h3>
+
+  <div *ngIf="isLoading" class="loading-text">กำลังโหลดข้อมูล...</div>
+  <div *ngIf="errorMessage" class="error-text">{{ errorMessage }}</div>
+  <div *ngIf="message" class="success-message">{{ message }}</div>
+
+  <div class="card" *ngIf="!isLoading && !errorMessage">
+    <div class="card-header">
+      <label for="course-select" class="font-bold">เลือกวิชาที่ต้องการบันทึกเกรด:</label>
+      <select id="course-select" (change)="onCourseSelect($event)" class="ml-4 p-2 border rounded">
+        <option value="">-- กรุณาเลือกวิชา --</option>
+        <option *ngFor="let c of courses" [value]="c.id">{{ c.code }} - {{ c.title }}</option>
+      </select>
+    </div>
+  </div>
+
+  <table class="data-table" *ngIf="students.length > 0">
+    <thead>
+      <tr>
+        <th width="5%">#</th>
+        <th width="15%">รหัสนักศึกษา</th>
+        <th width="30%">ชื่อ-นามสกุล</th>
+        <th width="15%">เกรดเดิม</th>
+        <th width="15%">เกรดใหม่</th>
+        <th width="20%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of students; let i = index" [class.row-even]="i % 2 === 0">
+        <td class="text-center">{{ i + 1 }}</td>
+        <td class="text-center">{{ s.student_code }}</td>
+        <td>{{ s.first_name }} {{ s.last_name }}</td>
+        <td class="text-center">{{ s.grade || '-' }}</td>
+        <td class="text-center">
+          <select [(ngModel)]="s.grade" class="grade-select">
+            <option value="">--</option>
+            <option *ngFor="let g of gradeOptions" [value]="g">{{ g }}</option>
+          </select>
+        </td>
+        <td class="text-center">
+          <button (click)="saveGrade(s)" class="btn-save" [disabled]="!s.grade">บันทึก</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

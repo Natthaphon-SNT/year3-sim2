@@ -1,0 +1,38 @@
+<div class="page-container">
+  <h3 class="page-title">ประวัติการยืม-คืนหนังสือ</h3>
+
+  <div *ngIf="isLoading" class="loading-text">กำลังโหลดข้อมูล...</div>
+  <div *ngIf="errorMessage" class="error-text">{{ errorMessage }}</div>
+
+  <table class="data-table" *ngIf="!isLoading && !errorMessage">
+    <thead>
+      <tr>
+        <th width="35%">ชื่อหนังสือ</th>
+        <th width="15%">วันที่ยืม</th>
+        <th width="15%">กำหนดคืน</th>
+        <th width="20%">สถานะ</th>
+        <th width="15%">ค่าปรับ (บาท)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="history.length === 0">
+        <td colspan="5" class="text-center">ไม่มีประวัติการทำรายการ</td>
+      </tr>
+      
+      <tr *ngFor="let h of history; let i = index" [class.row-even]="i % 2 === 0">
+        <td class="font-bold">{{ h.book_title }}</td>
+        <td class="text-center">{{ h.borrow_date | date:'dd/MM/yyyy' }}</td>
+        <td class="text-center">{{ h.due_date | date:'dd/MM/yyyy' }}</td>
+        
+        <td class="text-center font-bold" 
+            [ngClass]="{'status-late': h.status.includes('Late'), 'status-good': !h.status.includes('Late')}">
+          {{ h.status }}
+        </td>
+        
+        <td class="text-center" [ngClass]="{'error-text': h.current_fine > 0}">
+          {{ h.current_fine | number:'1.2-2' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

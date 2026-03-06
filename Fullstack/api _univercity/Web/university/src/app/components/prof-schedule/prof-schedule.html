@@ -1,0 +1,28 @@
+<div class="page-container">
+  <h3 class="page-title">ตารางสอน (Teaching Schedule)</h3>
+
+  <div *ngIf="isLoading" class="loading-text">กำลังโหลดข้อมูล...</div>
+  <div *ngIf="errorMessage" class="error-text">{{ errorMessage }}</div>
+
+  <table class="data-table" *ngIf="!isLoading && !errorMessage">
+    <thead>
+      <tr>
+        <th width="15%">รหัสวิชา</th>
+        <th width="35%">ชื่อวิชา</th>
+        <th width="25%">วันและเวลาสอน</th>
+        <th width="25%">ห้องเรียน</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="schedule.length === 0">
+        <td colspan="4" class="text-center">ไม่มีข้อมูลตารางสอน</td>
+      </tr>
+      <tr *ngFor="let s of schedule; let i = index" [class.row-even]="i % 2 === 0">
+        <td class="text-center font-bold">{{ s.course_code }}</td>
+        <td>{{ s.title }}</td>
+        <td class="text-center">{{ s.day_of_week }} <br> {{ s.start_time }} - {{ s.end_time }}</td>
+        <td class="text-center">{{ s.room_number }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,62 @@
+.profile-container {
+  padding: 10px;
+  font-family: 'Tahoma', sans-serif;
+  background-color: #ffffff;
+}
+
+.welcome-text {
+  color: #cc6600; /* สีส้ม */
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.alert-box {
+  color: #cc0000; /* สีแดง */
+  font-size: 14px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.info-card {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 15px;
+  gap: 40px; /* ระยะห่างระหว่างรูป ข้อมูล และอาจารย์ */
+  background-color: #fcfcfc;
+}
+
+.profile-pic img {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid #00529b;
+}
+
+.section-title {
+  color: #cc6600;
+  text-decoration: underline;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.info-details p, .advisor-details p {
+  color: #000080; /* สีน้ำเงินเข้ม */
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.advisor-name {
+  color: #0000ff !important; /* สีน้ำเงินสว่าง */
+}
+
+.footer-divider {
+  color: #cc6600;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+  letter-spacing: 1px;
+}

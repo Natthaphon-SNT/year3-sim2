@@ -1,0 +1,29 @@
+<div class="page-container">
+  <h3 class="page-title">รายวิชาที่เปิดสอน</h3>
+
+  <div *ngIf="isLoading" class="loading-text">กำลังโหลดข้อมูล...</div>
+  <div *ngIf="errorMessage" class="error-text">{{ errorMessage }}</div>
+
+  <table class="data-table" *ngIf="!isLoading && !errorMessage">
+    <thead>
+      <tr>
+        <th width="15%">รหัสวิชา</th>
+        <th width="40%">ชื่อวิชา</th>
+        <th width="15%">หน่วยกิต</th>
+        <th width="30%">สาขาวิชา</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="courses.length === 0">
+        <td colspan="4" class="text-center">ไม่มีข้อมูลรายวิชาในระบบ</td>
+      </tr>
+      
+      <tr *ngFor="let course of courses; let i = index" [class.row-even]="i % 2 === 0">
+        <td class="text-center font-bold">{{ course.course_code }}</td>
+        <td>{{ course.title }}</td>
+        <td class="text-center">{{ course.credits }}</td>
+        <td>{{ course.department_name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

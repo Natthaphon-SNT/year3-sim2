@@ -1,0 +1,66 @@
+/* ใส่ CSS จาก Courses มาที่นี่ด้วย... */
+.page-container {
+    padding: 15px;
+    font-family: 'Tahoma', sans-serif;
+}
+
+.page-title {
+    color: #00529b;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    border: 1px solid #999;
+}
+
+.data-table th {
+    background-color: #d9e8f5;
+    color: #00529b;
+    padding: 8px;
+    border: 1px solid #999;
+    text-align: center;
+    font-weight: bold;
+}
+
+.data-table td {
+    padding: 8px;
+    border: 1px solid #999;
+    color: #333;
+}
+
+.row-even {
+    background-color: #f9f9f9;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.loading-text {
+    color: #cc6600;
+    font-weight: bold;
+}
+
+.error-text {
+    color: #cc0000;
+    font-weight: bold;
+}
+
+/* สีพิเศษสำหรับสถานะห้องสมุด */
+.status-late {
+    color: #cc0000;
+}
+
+.status-good {
+    color: #008000;
+}

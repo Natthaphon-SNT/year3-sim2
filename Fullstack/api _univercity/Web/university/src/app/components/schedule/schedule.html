@@ -1,0 +1,68 @@
+<div class="page-container">
+  <h3 class="page-title">ตารางเรียนและตารางสอบ</h3>
+
+  <div *ngIf="isLoading" class="loading-text">กำลังโหลดข้อมูล...</div>
+  <div *ngIf="errorMessage" class="error-text">{{ errorMessage }}</div>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    
+    <!-- ตารางเรียน -->
+    <h4 class="section-title">ตารางเรียน</h4>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th width="10%">วัน</th>
+          <th width="15%">เวลา</th>
+          <th width="15%">รหัสวิชา</th>
+          <th width="30%">ชื่อวิชา</th>
+          <th width="10%">ห้อง</th>
+          <th width="20%">ผู้สอน</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="classSchedule.length === 0">
+          <td colspan="6" class="text-center">ไม่มีข้อมูลตารางเรียน</td>
+        </tr>
+        <tr *ngFor="let c of classSchedule; let i = index" [class.row-even]="i % 2 === 0">
+          <td class="text-center">{{ c.day_of_week }}</td>
+          <td class="text-center">{{ c.start_time }} - {{ c.end_time }}</td>
+          <td class="text-center font-bold">{{ c.course_code }}</td>
+          <td>{{ c.title }}</td>
+          <td class="text-center">{{ c.room_number }}</td>
+          <td>{{ c.instructor_name }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <!-- ตารางสอบ -->
+    <h4 class="section-title">ตารางสอบ</h4>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th width="15%">วันที่</th>
+          <th width="15%">เวลา</th>
+          <th width="15%">รหัสวิชา</th>
+          <th width="30%">ชื่อวิชา</th>
+          <th width="10%">ห้อง</th>
+          <th width="20%">ผู้สอน</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="examSchedule.length === 0">
+          <td colspan="6" class="text-center">ไม่มีข้อมูลตารางสอบ</td>
+        </tr>
+        <tr *ngFor="let e of examSchedule; let i = index" [class.row-even]="i % 2 === 0">
+          <td class="text-center">{{ e.exam_date | date:'dd/MM/yyyy' }}</td>
+          <td class="text-center">{{ e.start_time }} - {{ e.end_time }}</td>
+          <td class="text-center font-bold">{{ e.course_code }}</td>
+          <td>{{ e.title }}</td>
+          <td class="text-center">{{ e.room_number }}</td>
+          <td>{{ e.instructor_name }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

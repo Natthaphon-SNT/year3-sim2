@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="header"></div>
+
+  <div class="layout">
+    <div class="sidebar" *ngIf="authService.isLoggedIn()">
+      <div class="sidebar-header">เมนูหลัก</div>
+      <ul class="menu-list" *ngIf="authService.getRole() === 'Student'">
+        <li><a routerLink="/profile" routerLinkActive="active-menu">ประวัตินักศึกษา</a></li>
+        <li><a routerLink="/courses" routerLinkActive="active-menu">รายวิชาที่เปิดสอน</a></li>
+        <li><a routerLink="/library" routerLinkActive="active-menu">ระบบห้องสมุด</a></li>
+        <li><a routerLink="/grades" routerLinkActive="active-menu">ผลการศึกษา</a></li>
+        <li><a routerLink="/schedule" routerLinkActive="active-menu">ตารางเรียน/สอบ</a></li>
+        <li><a (click)="logout()" style="cursor: pointer;">ออกจากระบบ</a></li>
+      </ul>
+
+      <ul class="menu-list" *ngIf="authService.getRole() === 'Professor'">
+        <li><a routerLink="/profile" routerLinkActive="active-menu">ข้อมูลส่วนตัวบุคลากร</a></li>
+        <li><a routerLink="/prof-schedule" routerLinkActive="active-menu">ตารางสอน</a></li>
+        <li><a routerLink="/prof-grading" routerLinkActive="active-menu">บันทึกผลการเรียน (ตัดเกรด)</a></li>
+        <li><a routerLink="/library" routerLinkActive="active-menu">ระบบห้องสมุด</a></li>
+        <li><a (click)="logout()" style="cursor:pointer; color: red;">ออกจากระบบ</a></li>
+      </ul>
+
+      <ul class="menu-list" *ngIf="authService.getRole() === 'Admin'">
+        <li><a routerLink="/profile" routerLinkActive="active-menu">ข้อมูลส่วนตัวผู้ดูแล</a></li>
+        <li><a routerLink="/admin-users" routerLinkActive="active-menu">จัดการผู้ใช้งานระบบ</a></li>
+        <li><a routerLink="/admin-library" routerLinkActive="active-menu">จัดการระบบห้องสมุด</a></li>
+        <li><a (click)="logout()" style="cursor:pointer; color: red;">ออกจากระบบ</a></li>
+      </ul>
+
+      <ul class="menu-list" *ngIf="authService.getRole() === 'Staff'">
+        <li><a routerLink="/profile" routerLinkActive="active-menu">ข้อมูลส่วนตัวบุคลากร</a></li>
+        <li><a routerLink="/admin-library" routerLinkActive="active-menu">จัดการระบบห้องสมุด</a></li>
+        <li><a (click)="logout()" style="cursor:pointer; color: red;">ออกจากระบบ</a></li>
+      </ul>
+    </div>
+
+    <div class="content" [style.flex]="authService.isLoggedIn() ? '1' : '100%'">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
